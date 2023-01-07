@@ -13,7 +13,8 @@
     "lint-staged": "lint-staged",
     "rp:bootstrap": "release-please bootstrap --token=$GITHUB_PERSONAL_PUBLIC_TOKEN --repo-url=$(git config --get remote.origin.url) --releaseType=node",
     "rp:pull-request": "release-please release-pr --token=$GITHUB_PERSONAL_PUBLIC_TOKEN --repo-url=$(git config --get remote.origin.url)",
-    "rp:release": "release-please github-release --token=$GITHUB_PERSONAL_PUBLIC_TOKEN --repo-url=$(git config --get remote.origin.url)"
+    "rp:release": "release-please github-release --token=$GITHUB_PERSONAL_PUBLIC_TOKEN --repo-url=$(git config --get remote.origin.url)",
+    "prettify": "prettier -w"
   },
   "dependencies": {
     "next": "13.0.3",
@@ -30,6 +31,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "autoprefixer": "^10.4.13",
     "eslint": "^8.15.0",
     "eslint-config-next": "^13.0.3",
     "eslint-config-prettier": "^8.5.0",
@@ -38,20 +40,22 @@
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "lint-staged": "^12.4.3",
+    "postcss": "^8.4.20",
     "prettier": "^2.6.2",
     "release-please": "^13.19.4",
+    "tailwindcss": "^3.2.4",
     "typescript": "^4.6.3"
   },
   "lint-staged": {
     "{src,pages}/**/*.{js,jsx,ts,tsx}": [
-      "eslint src pages --fix",
-      "prettier -w"
+      "yarn lint:fix",
+      "yarn prettify"
     ],
     "{src,pages}/**/*.{css,scss,sass,json}": [
-      "prettier -w"
+      "yarn prettify"
     ]
   },
   "volta": {
-    "node": "16.15.1"
+    "node": "18.12.1"
   }
 }
