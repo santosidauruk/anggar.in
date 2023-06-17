@@ -1,5 +1,6 @@
 const futureValue = ({ interestPerYear, period, payment, initialCapital }) => {
   const interestRatePerMonth = interestPerYear / 100 / 12;
+  // NOTE: don't know how to name these, forgive me
   const a = Math.pow(1 + interestRatePerMonth, period * 12);
   const b = initialCapital * a;
   const c = a - 1;
@@ -8,12 +9,4 @@ const futureValue = ({ interestPerYear, period, payment, initialCapital }) => {
   return b + d;
 };
 
-const resFutureValue = futureValue({
-  initialCapital: 1000000,
-  payment: 2000000,
-  interestPerYear: 7.25,
-  period: 1,
-});
-
-console.log(resFutureValue, 'resFutureValue');
-// export { futureValue };
+export { futureValue };
