@@ -41,13 +41,8 @@ const FinalInvestment = ({ setResult, data }: Props) => {
       interestPerYear: data.assumedReturn,
       payment: formatToNumberValue(data.monthlySaving),
     });
-    console.log(f, 'f');
     setResult({ result: Math.floor(f), ...data });
   });
-
-  useEffect(() => {
-    console.log(data, 'data');
-  }, [data]);
 
   return (
     <div>

@@ -14,7 +14,7 @@ const InvestmentPeriodResult = ({
         <h3 className="text-xs md:text-sm text-neutral-600">
           Lama kamu harus menabung
         </h3>
-        <h2 className="text-xl md:text-2xl lg:text-4xl font-bold mt-1 md:mt-2">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mt-1 md:mt-2">
           {convertToYearAndMonths(data.result)}
         </h2>
         <div className="absolute right-0 bottom-0 overflow-hidden w-[85px] h-[85px] md:w-[110px] mdh-[110px]">

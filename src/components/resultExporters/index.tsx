@@ -22,19 +22,12 @@ const ExportResult = ({ isHaveResult, data, activeType }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const ExportedResult = Component[activeType];
 
-  useEffect(() => {
-    console.log(activeType, 'activeType');
-  }, [activeType]);
-
   const onSaveClick = useCallback(() => {
     html2canvas(ref.current).then((canvas) => {
       const dataUrl = canvas.toDataURL();
       const link = document.createElement('a');
       link.href = dataUrl;
-      link.download = `generated_${new Date()
-        .toDateString()
-        .split(' ')
-        .join('-')}`;
+      link.download = `generated_${new Date().toLocaleString()}`;
       link.click();
     });
   }, [ref]);

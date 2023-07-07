@@ -28,7 +28,7 @@ const SavingInvestmentResult = ({
             <p className="text-neutral-600 text-xs">
               Jumlah yang harus ditabung setiap bulan
             </p>
-            <h2 className="text-xl md:text-2xl lg:text-4xl font-bold ">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold ">
               Rp {formatToCurrency(data.result?.monthlyPayment)}
             </h2>
           </div>
@@ -47,7 +47,7 @@ const SavingInvestmentResult = ({
             <p className="text-neutral-600 text-xs">
               Jumlah yang harus ditabung setiap tahun
             </p>
-            <h2 className="text-xl md:text-2xl lg:text-4xl font-bold ">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold ">
               Rp {formatToCurrency(data.result?.yearlyPayment)}
             </h2>
           </div>

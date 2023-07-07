@@ -11,14 +11,6 @@ const Content = () => {
   const { calcData, dispatch } = useCalculation();
   const isHaveResult = !!calcData[activeTab].result;
 
-  useEffect(() => {
-    console.log(calcData, 'result');
-  }, [calcData]);
-
-  useEffect(() => {
-    console.log(activeTab, 'activeTab di content');
-  }, [activeTab]);
-
   return (
     <div className="grid gap-4 grid-cols-1 md:grid-cols-2 md:mb-6 max-w-screen-xl mx-auto my-0">
       <div>
