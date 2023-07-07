@@ -35,7 +35,6 @@ const SavingInvestment = ({ setResult, data }: Props) => {
     defaultValues: data,
   });
 
-  console.log(methods.formState.errors, 'methods.formState.errors');
   const onSubmit = methods.handleSubmit((data) => {
     const result = payment({
       inflation: parseFloat(data.inflation.replaceAll(',', '.')),

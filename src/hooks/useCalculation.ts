@@ -1,10 +1,10 @@
-import { Dispatch, useReducer } from 'react';
+import { useReducer } from 'react';
 import {
   FINAL_INVESTMENT,
   INVESTMENT_PERIOD,
   SAVING_INVESTMENT,
 } from '@/constants/investmentTypes';
-import { InvestmentType, CalculationResult } from '@/types/result';
+import { CalculationResult } from '@/types/result';
 
 interface Final {
   type: 'finalInvestment';
@@ -21,12 +21,7 @@ interface Saving {
   payload: CalculationResult['savingInvestment'];
 }
 
-export interface StateAction {
-  type: InvestmentType;
-  payload: CalculationResult[InvestmentType];
-}
-
-type Act = Final | Period | Saving;
+export type CalcAction = Final | Period | Saving;
 
 const initialResult: CalculationResult = {
   finalInvestment: {},
@@ -34,7 +29,7 @@ const initialResult: CalculationResult = {
   savingInvestment: {},
 };
 
-const reducer = (state: CalculationResult, { type, payload }: Act) => {
+const reducer = (state: CalculationResult, { type, payload }: CalcAction) => {
   switch (type) {
     case FINAL_INVESTMENT:
       return {
@@ -57,9 +52,9 @@ const reducer = (state: CalculationResult, { type, payload }: Act) => {
 };
 
 const useCalculation = () => {
-  const [data, dispatch] = useReducer(reducer, initialResult);
+  const [calcData, dispatch] = useReducer(reducer, initialResult);
 
-  return { data, dispatch };
+  return { calcData, dispatch };
 };
 
 export default useCalculation;

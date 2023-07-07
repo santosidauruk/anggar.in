@@ -28,7 +28,6 @@ const InvestmentPeriod = ({ setResult, data }: Props) => {
     shouldUnregister: false,
   });
 
-  console.log(methods.formState.errors, 'methods.formState.errors');
   const onSubmit = methods.handleSubmit((data) => {
     const period = investmentLength({
       futureValue: formatToNumberValue(data.savingTarget),
@@ -37,8 +36,6 @@ const InvestmentPeriod = ({ setResult, data }: Props) => {
       monthlyContribution: formatToNumberValue(data.monthlySaving),
     });
     setResult({ result: Math.ceil(period), ...data });
-    console.log(data, 'data');
-    console.log(period, 'period');
   });
 
   return (

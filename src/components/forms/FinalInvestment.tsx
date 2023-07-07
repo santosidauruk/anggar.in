@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Input from '../Input';
-import { futureValue, payment } from '@/utils/formula';
+import { futureValue } from '@/utils/formula';
 import { CalculationResult } from '@/types/result';
-import { formatCurrency, formatToNumberValue } from '../../utils/formatter';
+import { formatCurrency, formatToNumberValue } from '@/utils/formatter';
 
 const schema = z.object({
   monthlySaving: z
@@ -33,19 +33,21 @@ const FinalInvestment = ({ setResult, data }: Props) => {
     resolver: zodResolver(schema),
     defaultValues: data,
   });
-  console.log(methods.formState.errors, 'methods.formState.errors');
-  console.log(methods.getValues(), 'methods.getvalues');
+
   const onSubmit = methods.handleSubmit((data) => {
-    console.log(data, 'data');
     const f = futureValue({
       initialCapital: formatToNumberValue(data.currentSaving),
       period: data.timePeriod,
       interestPerYear: data.assumedReturn,
       payment: formatToNumberValue(data.monthlySaving),
     });
+    console.log(f, 'f');
     setResult({ result: Math.floor(f), ...data });
-    console.log(Math.floor(f), 'Math.floor(f)');
   });
+
+  useEffect(() => {
+    console.log(data, 'data');
+  }, [data]);
 
   return (
     <div>

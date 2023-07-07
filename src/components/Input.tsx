@@ -30,14 +30,14 @@ const Input = ({
   const hasError = !!errorMsg;
 
   return (
-    <div className="max-w-xs">
+    <div>
       <label
         htmlFor="input-group-1"
         className="block mb-2 text-xs md:text-sm font-medium text-neutral-600"
       >
         {label}
       </label>
-      <div className="relative text-sm md:text-base">
+      <div className="relative text-sm md:text-base max-w-xs">
         {prefix ? (
           <div className="absolute flex items-center p-3 pointer-events-none font-bold border-purple-300 bg-neutral-200 border-r rounded-l-lg inset-y-px left-px text-neutral-600">
             {prefix}

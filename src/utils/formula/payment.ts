@@ -1,19 +1,18 @@
 const calculatePayment = ({
-  targetAmount,
-  inflation,
+  futureAmount,
   period,
   initialCapital,
   interest,
 }) => {
-  const futureValue = targetAmount * Math.pow(1 + inflation / 100, period);
   // NOTE: don't know how to name these, forgive me
-  const a = Math.pow(1 + interest, period * 12);
+  const a = Math.pow(1 + interest, period);
   const b = initialCapital * a;
 
-  const c = interest * (b - futureValue);
+  const c = interest * (b - futureAmount);
   const d = 1 - a;
 
-  return c / d;
+  const res = c / d;
+  return res <= 0 ? 0 : res;
 };
 
 const payment = ({
@@ -25,18 +24,18 @@ const payment = ({
 }) => {
   const returnPerYear = interestPerYear / 100;
   const returnPerMonth = returnPerYear / 12;
+  const futureAmount = targetAmount * Math.pow(1 + inflation / 100, period);
 
   const yearlyPayment = calculatePayment({
-    targetAmount,
+    futureAmount,
     interest: returnPerYear,
-    inflation,
     period,
     initialCapital,
   });
+
   const monthlyPayment = calculatePayment({
-    targetAmount,
+    futureAmount,
     interest: returnPerMonth,
-    inflation,
     period: period * 12,
     initialCapital,
   });
