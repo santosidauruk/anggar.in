@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import { FINAL_INVESTMENT } from '@/constants/investmentTypes';
 import useCalculation from '@/hooks/useCalculation';
 import CalcResult from './results';
-// import ResultExporter from './resultExporters';
 import Form from './forms';
 import { InvestmentType } from '@/types/result';
 

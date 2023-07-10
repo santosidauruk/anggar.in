@@ -7,9 +7,9 @@ const EmptyResult = () => {
       <div className="relative w-[144px] h-[157px]">
         <Image src={'/empty-calc-form.png'} alt={'empty-form'} fill />
       </div>
-      <h4 className="text-purple-400 text-sm md:text-xl text-center mt-3 max-w-[250px]">
+      <p className="text-purple-400 text-sm md:text-xl text-center mt-3 max-w-[250px]">
         Lengkapi form disamping untuk mendapatkan hasil
-      </h4>
+      </p>
     </div>
   );
 };

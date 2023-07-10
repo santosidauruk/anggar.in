@@ -32,7 +32,7 @@ const Input = ({
   return (
     <div>
       <label
-        htmlFor="input-group-1"
+        htmlFor={id}
         className="block mb-2 text-xs md:text-sm font-medium text-neutral-600"
       >
         {label}

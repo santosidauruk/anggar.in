@@ -6,9 +6,9 @@ const Header = () => {
       <h1 className="md:text-5xl text-2xl md:mb-6 mb-2 font-bold">
         Kalkulator Mimpi
       </h1>
-      <h3 className="text-xs md:text-2xl">
+      <h2 className="text-xs md:text-2xl">
         Mimpi yang terukur adalah mimpi yang akan tercapai
-      </h3>
+      </h2>
     </div>
   );
 };
