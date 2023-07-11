@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { FINAL_INVESTMENT } from '@/constants/investmentTypes';
 import useCalculation from '@/hooks/useCalculation';
-import CalcResult from './results';
 import Form from './forms';
 import { InvestmentType } from '@/types/result';
 
 const ResultExporter = dynamic(() => import('./resultExporters'), {
+  loading: () => <p>Loading...</p>,
+});
+
+const CalcResult = dynamic(() => import('./results'), {
   loading: () => <p>Loading...</p>,
 });
 
