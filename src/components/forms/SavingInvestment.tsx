@@ -10,10 +10,10 @@ import { CalculationResult } from '@/types/result';
 const schema = z.object({
   savingTarget: z
     .string()
-    .min(1, { message: 'Silakan isi target tabungan yang ingin dicapi' }),
+    .min(1, { message: 'Silakan isi target investasi yang ingin dicapi' }),
   currentSaving: z
     .string()
-    .min(1, { message: 'Silakan isi jumlah tabungan saat ini' }),
+    .min(1, { message: 'Silakan isi jumlah dana saat ini' }),
   timePeriod: z.number({
     invalid_type_error: 'Silakan isi lama waktu yang kamu inginkan',
     required_error: 'Silakan isi lama waktu yang kamu inginkan',
@@ -36,26 +36,33 @@ const SavingInvestment = ({ setResult, data }: Props) => {
   });
 
   const onSubmit = methods.handleSubmit((data) => {
-    const result = payment({
+    const { monthlyPayment, yearlyPayment } = payment({
       inflation: parseFloat(data.inflation.replaceAll(',', '.')),
       initialCapital: formatToNumberValue(data.currentSaving),
       period: data.timePeriod,
       targetAmount: formatToNumberValue(data.savingTarget),
       interestPerYear: parseFloat(data.assumedReturn.replaceAll(',', '.')),
     });
-    setResult({ result, ...data });
+
+    setResult({
+      result: {
+        monthlyPayment: Math.floor(monthlyPayment),
+        yearlyPayment: Math.floor(yearlyPayment),
+      },
+      ...data,
+    });
   });
   return (
     <div>
       <h3 className="pt-5 md:pt-9 pb-8 md:pb-9 px-4 md:px-9 text-sm md:text-2xl font-bold text-neutral-800 text-left">
-        Kalkulator Investasi Bulanan & Tahunan
+        Kalkulator Investasi Berkala
       </h3>
       <FormProvider {...methods}>
         <form onSubmit={onSubmit}>
           <div className="px-4 md:px-9 pb-11 grid grid-cols-1 gap-6">
             <Input
               prefix="Rp"
-              label="Target tabungan masa depan yang ingin dicapai?"
+              label="Target dana yang ingin kamu capai"
               id="savingTarget"
               type="text"
               onChange={(e) => {
@@ -65,7 +72,7 @@ const SavingInvestment = ({ setResult, data }: Props) => {
             />
             <Input
               prefix="Rp"
-              label="Jumlah tabungan saat ini?"
+              label="Jumlah dana kamu saat ini"
               id="currentSaving"
               type="text"
               onChange={(e) => {
@@ -81,13 +88,13 @@ const SavingInvestment = ({ setResult, data }: Props) => {
             />
             <Input
               suffix="% /Tahun"
-              label="Tingkat inflasi"
+              label="Asumsi inflasi tahunan"
               id="inflation"
               type="text"
             />
             <Input
               suffix="% /Tahun"
-              label="Asumsi return investasi"
+              label="Asumsi return investasi kamu"
               id="assumedReturn"
               type="text"
             />
@@ -97,7 +104,7 @@ const SavingInvestment = ({ setResult, data }: Props) => {
               type="submit"
               className="text-white bg-purple-700 font-medium rounded-lg px-10 py-3 md:py-5 my-5 w-full lg:w-[400px]"
             >
-              Ukur Mimpimu
+              Ukur mimpimu
             </button>
           </div>
         </form>

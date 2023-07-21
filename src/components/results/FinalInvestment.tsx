@@ -12,7 +12,7 @@ const FinalInvestmentResult = ({
     <React.Fragment>
       <div className="p-4 md:pl-8 md:py-6 pr-14 md:pr-28 rounded-md bg-purple-400 relative mb-5">
         <h3 className="text-xs md:text-sm text-neutral-600">
-          Hasil tabungan akhir setelah {data.timePeriod} tahun
+          Hasil investasi kamu setelah {data.timePeriod} tahun
         </h3>
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mt-1 md:mt-2">
           Rp {formatToCurrency(data.result)}
@@ -32,9 +32,9 @@ const FinalInvestmentResult = ({
           Penjelasan
         </h3>
         <p className="text-xs md:text-sm text-neutral-600 leading-[18px] md:mt-2">
-          Kalkulator investasi akhir menghitung jumlah tabungan yang terkumpul
-          dalam periode waktu tertentu disesuaikan dengan tingkat inflasi dan
-          asumsi return instrumen investasi.
+          Nilai diatas merupakan ilustrasi nilai hasil investasi akhir jika kamu
+          melakukan investasi rutin perbulan selama periode waktu tertentu
+          dengan asumsi return investasi yang kamu inginkan.
         </p>
       </div>
     </React.Fragment>

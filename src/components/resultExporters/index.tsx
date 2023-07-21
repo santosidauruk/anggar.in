@@ -54,7 +54,7 @@ const ExportResult = ({ isHaveResult, data, activeType }: Props) => {
           )}
           onClick={onSaveClick}
         >
-          Simpan Sebagai PDF 🗒
+          Simpan sebagai gambar 🖼️
         </button>
       </div>
     </React.Fragment>

@@ -1,30 +1,23 @@
-# Rangka
+# Anggar.in
+![GitHub deployments](https://img.shields.io/github/deployments/santosidauruk/anggar.in/production?logo=vercel&label=vercel&link=https%3A%2F%2Fgithub.com%2Fsantosidauruk%2Fanggar.in%2Fdeployments%2Factivity_log%3Fenvironment%3DProduction)
+<!-- asda -->
 
-Rangka is a [Next.js](https://nextjs.org/) repository bootstrapped with battery pack included 🔋
+## Tech Stack
+- Next.js
+- Tailwind CSS
+- Typescript
 
-## Battery Pack Included
-- Eslint and Prettier to find, fix and format your code
-- Unit test configuration using jest and react-testing-library
-- Husky and Lint-staged to ensure your code is checked before they are commited
-- Conventional Commitlint to check your commit-message follow the same convention
-- Module path aliases to simplify the way you import your modules
-- Release-please to automate your versioning and releasing your projects 
+## Features
+- Calculate
+## Screenshots
 
-## Version and Release
-Before using the `release-please` package, add `GITHUB_PERSONAL_PUBLIC_TOKEN` variable to your environment shell
-```
-export GITHUB_PERSONAL_PUBLIC_TOKEN=<your_gh_personal_access_token>
-```
+## Contributions
+Contributions of any kind welcome!
+
+## Credits
+- [ipotgo](https://www.indopremier.com/ipotfund/calc-savinggoal.php)
+- [feliciaputritjiasaka.com](https://feliciaputritjiasaka.com/)
+- [pina.id](https://pina.id/classroom/detail/4-jenis-kalkulator-investasi-yang-dapat-bantu-kamu-menghitung-keuntungan-secara-maksimal-3w9698x2rtb)
 
 
-## Reference
-1. [Next.js](https://nextjs.org/)
-2. [Eslint](https://eslint.org/)
-3. [Prettier](https://prettier.io/)
-4. [Jest](https://jestjs.io/)
-5. [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-6. [Husky](https://typicode.github.io/husky/#/)
-7. [Lint-staged](https://github.com/okonet/lint-staged#readme)
-8. [Commitlint](https://commitlint.js.org/#/)
-9. [Conventional-commit](https://www.conventionalcommits.org/en/v1.0.0/)
-10. [Release-please](https://github.com/googleapis/release-please)
+Copyright ©️ 2023 by Santo Sidauruk

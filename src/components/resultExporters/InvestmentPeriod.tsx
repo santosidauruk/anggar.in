@@ -10,23 +10,23 @@ const ExportedInvestmentPeriod = ({ data }: Props) => {
   return (
     <div className="rounded-lg bg-purple-100">
       <h3 className="text-xl font-bold p-6 border-b border-neutral-400">
-        Perhitungan Periode Investasi
+        Detail Perhitungan Periode Investasi
       </h3>
       <div className="p-6">
         <p className="text-xs leading-loose text-neutral-600">
-          Target tabungan masa depan yang ingin dicapai?
+          Target dana yang ingin kamu capai
         </p>
         <p className="text-sm font-bold mb-6">Rp {data.savingTarget}</p>
         <p className="text-xs leading-loose text-neutral-600">
-          Jumlah yang bisa ditabung setiap bulan?
+          Jumlah yang mau kamu investasikan tiap bulan
         </p>
         <p className="text-sm font-bold mb-6">Rp {data.monthlySaving}</p>
         <p className="text-xs leading-loose text-neutral-600">
-          Jumlah tabungan saat ini??
+          Jumlah dana kamu saat ini
         </p>
         <p className="text-sm font-bold mb-6">{data.currentSaving} Tahun</p>
         <p className="text-xs leading-loose text-neutral-600">
-          Asumsi Return Investasi
+          Asumsi return investasi kamu
         </p>
         <p className="text-sm font-bold mb-6">{data.assumedReturn} %/Tahun</p>
         <InvestmentPeriodResult data={data} />

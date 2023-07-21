@@ -12,7 +12,7 @@ const InvestmentPeriodResult = ({
     <React.Fragment>
       <div className="p-4 md:pl-8 md:py-6 pr-14 md:pr-28 rounded-md bg-purple-400 relative mb-5">
         <h3 className="text-xs md:text-sm text-neutral-600">
-          Lama kamu harus menabung
+          Lama kamu harus berinvestasi
         </h3>
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mt-1 md:mt-2">
           {convertToYearAndMonths(data.result)}
@@ -32,8 +32,9 @@ const InvestmentPeriodResult = ({
           Penjelasan
         </h3>
         <p className="text-xs md:text-sm text-neutral-600 leading-[18px] md:mt-2">
-          Kalkulator periode investasi menghitung lama menabung bulanan untuk
-          bisa mencapai suatu target tabungan.
+          Nilai diatas merupakan ilustrasi waktu yang dibutuhkan untuk mencapai
+          target dana yang ingin kamu capai berdasarkan investasi rutin bulanan
+          dan asumsi return investasi kamu.
         </p>
       </div>
     </React.Fragment>

@@ -48,7 +48,7 @@ const InvestmentPeriod = ({ setResult, data }: Props) => {
           <div className="px-4 md:px-9 pb-11 grid grid-cols-1 gap-6">
             <Input
               prefix="Rp"
-              label="Target tabungan masa depan yang ingin dicapai?"
+              label="Target dana yang ingin kamu capai"
               id="savingTarget"
               type="text"
               onChange={(e) => {
@@ -58,7 +58,7 @@ const InvestmentPeriod = ({ setResult, data }: Props) => {
             />
             <Input
               prefix="Rp"
-              label="Jumlah yang bisa ditabung setiap bulan?"
+              label="Jumlah yang mau kamu investasikan tiap bulan"
               id="monthlySaving"
               type="text"
               onChange={(e) => {
@@ -68,7 +68,7 @@ const InvestmentPeriod = ({ setResult, data }: Props) => {
             />
             <Input
               prefix="Rp"
-              label="Jumlah tabungan saat ini?"
+              label="Jumlah dana kamu saat ini"
               id="currentSaving"
               type="text"
               onChange={(e) => {
@@ -78,7 +78,7 @@ const InvestmentPeriod = ({ setResult, data }: Props) => {
             />
             <Input
               suffix="% /Tahun"
-              label="Asumsi return investasi"
+              label="Asumsi return investasi kamu"
               id="assumedReturn"
               type="string"
             />
@@ -88,7 +88,7 @@ const InvestmentPeriod = ({ setResult, data }: Props) => {
               type="submit"
               className="text-white bg-purple-700 font-medium rounded-lg px-10 py-3 md:py-5 my-5 w-full lg:w-[400px]"
             >
-              Ukur Mimpimu
+              Ukur mimpimu
             </button>
           </div>
         </form>

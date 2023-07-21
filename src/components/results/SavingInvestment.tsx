@@ -12,21 +12,21 @@ const SavingInvestmentResult = ({
     <React.Fragment>
       <div className="p-4 md:pl-8 md:py-6 pr-14 md:pr-28 rounded-md bg-purple-400 relative mb-5">
         <h3 className="font-bold text-sm text-neutral-800">
-          Detail Perhitungan
+          Detail Hasil Perhitungan
         </h3>
         <div className="flex items-center mt-3">
           <div className="relative w-[30px] h-[30px]">
             <Image
               fill
               src={'/icon_monthly_payment.png'}
-              alt="tabungan per bulan"
+              alt="investasi per bulan"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
             />
           </div>
           <div className="ml-2.5">
             <p className="text-neutral-600 text-xs">
-              Jumlah yang harus ditabung setiap bulan
+              Jumlah yang harus kamu investasikan tiap bulan
             </p>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold ">
               Rp {formatToCurrency(data.result?.monthlyPayment)}
@@ -38,14 +38,14 @@ const SavingInvestmentResult = ({
             <Image
               fill
               src={'/icon_yearly_payment.png'}
-              alt="tabungan per bulan"
+              alt="investasi per bulan"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
             />
           </div>
           <div className="ml-2.5">
             <p className="text-neutral-600 text-xs">
-              Jumlah yang harus ditabung setiap tahun
+              Jumlah yang harus kamu investasikan tiap tahun
             </p>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold ">
               Rp {formatToCurrency(data.result?.yearlyPayment)}
@@ -68,10 +68,9 @@ const SavingInvestmentResult = ({
           Penjelasan
         </h3>
         <p className="text-xs md:text-sm text-neutral-600 leading-[18px] md:mt-2">
-          Kalkulator investasi tahunan & bulanan menghitung berapa yang harus
-          ditabung baik bulanan atau tahunan untuk mencapai target tabungan
-          disesuaikan dengan tingkat inflasi dan asumsi return instrumen
-          investasi.
+          Nilai diatas merupakan ilustrasi berapa yang harus kamu investasikan
+          baik bulanan atau tahunan untuk mencapai target dana yang kamu
+          inginkan berdasarkan asumsi inflasi dan return investasi.
         </p>
       </div>
     </React.Fragment>

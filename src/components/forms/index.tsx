@@ -27,7 +27,7 @@ const INVESTMENT_TYPES: LabelTabs[] = [
     key: INVESTMENT_PERIOD,
   },
   {
-    label: 'Bulanan & Tahunan',
+    label: 'Investasi Berkala',
     key: SAVING_INVESTMENT,
   },
 ];

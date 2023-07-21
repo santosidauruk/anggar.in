@@ -10,10 +10,10 @@ import { formatCurrency, formatToNumberValue } from '@/utils/formatter';
 const schema = z.object({
   monthlySaving: z
     .string()
-    .min(1, { message: 'Silakan isi jumlah tabungan setiap bulan' }),
+    .min(1, { message: 'Silakan isi jumlah investasi setiap bulan' }),
   currentSaving: z
     .string()
-    .min(1, { message: 'Silakan isi jumlah tabungan saat ini' }),
+    .min(1, { message: 'Silakan isi jumlah dana saat ini' }),
   timePeriod: z.number({
     invalid_type_error: 'Silakan isi lama waktu yang kamu inginkan',
     required_error: 'Silakan isi lama waktu yang kamu inginkan',
@@ -47,14 +47,14 @@ const FinalInvestment = ({ setResult, data }: Props) => {
   return (
     <div>
       <h3 className="pt-5 md:pt-9 pb-8 md:pb-9 px-4 md:px-9 text-sm md:text-2xl font-bold text-neutral-800 text-left">
-        Kalkulator Investasi Akhir
+        Kalkulator Nilai Investasi Akhir
       </h3>
       <FormProvider {...methods}>
         <form onSubmit={onSubmit}>
           <div className="px-4 md:px-9 pb-11 grid grid-cols-1 gap-6">
             <Input
               prefix="Rp"
-              label="Jumlah yang bisa ditabung setiap bulan?"
+              label="Jumlah yang mau kamu investasikan tiap bulan"
               id="monthlySaving"
               type="text"
               onChange={(e) => {
@@ -64,7 +64,7 @@ const FinalInvestment = ({ setResult, data }: Props) => {
             />
             <Input
               prefix="Rp"
-              label="Jumlah tabungan saat ini?"
+              label="Jumlah dana kamu saat ini"
               id="currentSaving"
               type="text"
               onChange={(e) => {
@@ -80,7 +80,7 @@ const FinalInvestment = ({ setResult, data }: Props) => {
             />
             <Input
               suffix="% /Tahun"
-              label="Asumsi return investasi"
+              label="Asumsi return investasi kamu"
               id="assumedReturn"
               type="text"
             />
@@ -90,7 +90,7 @@ const FinalInvestment = ({ setResult, data }: Props) => {
               type="submit"
               className="text-white bg-purple-700 font-medium rounded-lg px-10 py-3 md:py-5 my-5 w-full lg:w-[400px]"
             >
-              Ukur Mimpimu
+              Ukur mimpimu
             </button>
           </div>
         </form>
