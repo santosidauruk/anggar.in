@@ -53,6 +53,7 @@ const ExportResult = ({ isHaveResult, data, activeType }: Props) => {
               : 'text-neutral-400 border-neutral-400'
           )}
           onClick={onSaveClick}
+          disabled={!isHaveResult}
         >
           Simpan sebagai gambar 🖼️
         </button>
