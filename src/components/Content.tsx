@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { FINAL_INVESTMENT } from '@/constants/investmentTypes';
 import useCalculation from '@/hooks/useCalculation';
 import Form from './forms';
+import { FINAL_INVESTMENT } from '@/constants/index';
 import { InvestmentType } from '@/types/result';
 
 const ResultExporter = dynamic(() => import('./resultExporters'), {

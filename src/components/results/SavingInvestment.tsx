@@ -28,7 +28,7 @@ const SavingInvestmentResult = ({
             <p className="text-neutral-600 text-xs">
               Jumlah yang harus kamu investasikan tiap bulan
             </p>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold ">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold [word-break:break-word]">
               Rp {formatToCurrency(data.result?.monthlyPayment)}
             </h2>
           </div>
@@ -47,13 +47,13 @@ const SavingInvestmentResult = ({
             <p className="text-neutral-600 text-xs">
               Jumlah yang harus kamu investasikan tiap tahun
             </p>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold ">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold [word-break:break-word]">
               Rp {formatToCurrency(data.result?.yearlyPayment)}
             </h2>
           </div>
         </div>
 
-        <div className="absolute right-0 bottom-0 overflow-hidden w-[85px] h-[85px] md:w-[110px] mdh-[110px]">
+        <div className="absolute right-0 bottom-0 overflow-hidden w-[85px] h-[85px] md:w-[110px] md:h-[110px]">
           <Image
             fill
             src={'/icon_money.png'}

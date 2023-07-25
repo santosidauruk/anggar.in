@@ -14,10 +14,10 @@ const InvestmentPeriodResult = ({
         <h3 className="text-xs md:text-sm text-neutral-600">
           Lama kamu harus berinvestasi
         </h3>
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mt-1 md:mt-2">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mt-1 md:mt-2 [word-break:break-word]">
           {convertToYearAndMonths(data.result)}
         </h2>
-        <div className="absolute right-0 bottom-0 overflow-hidden w-[85px] h-[85px] md:w-[110px] mdh-[110px]">
+        <div className="absolute right-0 bottom-0 overflow-hidden w-[85px] h-[85px] md:w-[110px] md:h-[110px]">
           <Image
             fill
             src={'/icon_clock.png'}

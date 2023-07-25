@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -6,19 +6,24 @@ import Input from '../Input';
 import { futureValue } from '@/utils/formula';
 import { CalculationResult } from '@/types/result';
 import { formatCurrency, formatToNumberValue } from '@/utils/formatter';
+import { MAX_RETURN, MAX_YEARS } from '@/constants/index';
 
 const schema = z.object({
-  monthlySaving: z
+  monthlySaving: z.string().min(1, 'Silakan isi jumlah investasi setiap bulan'),
+  currentSaving: z.string().min(1, 'Silakan isi jumlah dana saat ini'),
+  timePeriod: z
+    .number({
+      invalid_type_error: 'Silakan isi lama waktu yang kamu inginkan',
+      required_error: 'Silakan isi lama waktu yang kamu inginkan',
+    })
+    .max(MAX_YEARS, `Periode waktu maksimal ${MAX_YEARS} tahun`),
+  assumedReturn: z
     .string()
-    .min(1, { message: 'Silakan isi jumlah investasi setiap bulan' }),
-  currentSaving: z
-    .string()
-    .min(1, { message: 'Silakan isi jumlah dana saat ini' }),
-  timePeriod: z.number({
-    invalid_type_error: 'Silakan isi lama waktu yang kamu inginkan',
-    required_error: 'Silakan isi lama waktu yang kamu inginkan',
-  }),
-  assumedReturn: z.string().regex(/^\d+(\,\d+)?$/),
+    .min(1, 'Silakan isi asumsi return investasi')
+    .regex(/^\d+(\,\d+)?$/, 'Return hanya boleh diisi dengan angka dan koma')
+    .refine((val) => parseFloat(val.replace(',', '.')) <= MAX_RETURN, {
+      message: `Asumsi return investasi maksimal ${MAX_RETURN}%`,
+    }),
 });
 
 export type FinalInvestmentInputs = z.infer<typeof schema>;

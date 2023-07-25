@@ -6,18 +6,47 @@ import Input from '../Input';
 import { formatCurrency, formatToNumberValue } from '@/utils/formatter';
 import { investmentLength } from '@/utils/formula';
 import { CalculationResult } from '@/types/result';
+import { MAX_RETURN } from '@/constants/index';
 
 interface Props {
   setResult: (data: CalculationResult['investmentPeriod']) => void;
   data: CalculationResult['investmentPeriod'];
 }
 
-const schema = z.object({
-  savingTarget: z.string(),
-  currentSaving: z.string(),
-  monthlySaving: z.string(),
-  assumedReturn: z.string().regex(/^\d+(\,\d+)?$/),
-});
+const schema = z
+  .object({
+    savingTarget: z
+      .string()
+      .min(1, 'Silakan isi target dana yang ingin dicapai'),
+    currentSaving: z.string().min(1, 'Silakan isi jumlah dana saat ini'),
+    monthlySaving: z
+      .string()
+      .min(1, 'Silakan isi jumlah investasi setiap bulan'),
+    assumedReturn: z
+      .string()
+      .min(1, 'Silakan isi asumsi return investasi')
+      .regex(/^\d+(\,\d+)?$/, 'Return hanya boleh diisi dengan angka dan koma')
+      .refine((val) => parseFloat(val.replace(',', '.')) <= MAX_RETURN, {
+        message: `Asumsi return investasi maksimal ${MAX_RETURN}%`,
+      }),
+  })
+  .refine(
+    ({ savingTarget, monthlySaving }) =>
+      formatToNumberValue(savingTarget) > formatToNumberValue(monthlySaving),
+    {
+      message:
+        'Jumlah investasi tiap bulan harus lebih sedikit dari target dana',
+      path: ['monthlySaving'],
+    }
+  )
+  .refine(
+    ({ savingTarget, currentSaving }) =>
+      formatToNumberValue(savingTarget) > formatToNumberValue(currentSaving),
+    {
+      message: 'Jumlah dana saat ini lebih sedikit dari target dana',
+      path: ['currentSaving'],
+    }
+  );
 
 export type InvestmentPeriodInputs = z.infer<typeof schema>;
 

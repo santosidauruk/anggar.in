@@ -6,21 +6,43 @@ import { formatCurrency, formatToNumberValue } from '@/utils/formatter';
 import * as z from 'zod';
 import { payment } from '@/utils/formula';
 import { CalculationResult } from '@/types/result';
+import { MAX_INFLATION, MAX_RETURN, MAX_YEARS } from '@/constants/index';
 
-const schema = z.object({
-  savingTarget: z
-    .string()
-    .min(1, { message: 'Silakan isi target investasi yang ingin dicapi' }),
-  currentSaving: z
-    .string()
-    .min(1, { message: 'Silakan isi jumlah dana saat ini' }),
-  timePeriod: z.number({
-    invalid_type_error: 'Silakan isi lama waktu yang kamu inginkan',
-    required_error: 'Silakan isi lama waktu yang kamu inginkan',
-  }),
-  inflation: z.string().regex(/^\d+(\,\d+)?$/),
-  assumedReturn: z.string().regex(/^\d+(\,\d+)?$/),
-});
+const schema = z
+  .object({
+    savingTarget: z
+      .string()
+      .min(1, 'Silakan isi target dana yang ingin dicapai'),
+    currentSaving: z.string().min(1, 'Silakan isi jumlah dana saat ini'),
+    timePeriod: z
+      .number({
+        invalid_type_error: 'Silakan isi lama waktu yang kamu inginkan',
+        required_error: 'Silakan isi lama waktu yang kamu inginkan',
+      })
+      .max(MAX_YEARS, `Periode waktu maksimal ${MAX_YEARS} tahun`),
+    inflation: z
+      .string()
+      .min(1, 'Silakan isi asumsi inflasi tahunan')
+      .regex(/^\d+(\,\d+)?$/, 'Inflasi hanya boleh diisi dengan angka dan koma')
+      .refine((val) => parseFloat(val.replace(',', '.')) <= MAX_INFLATION, {
+        message: `Asumsi inflasi tahunan maksimal ${MAX_INFLATION}%`,
+      }),
+    assumedReturn: z
+      .string()
+      .min(1, 'Silakan isi asumsi return investasi')
+      .regex(/^\d+(\,\d+)?$/, 'Return hanya boleh diisi dengan angka dan koma')
+      .refine((val) => parseFloat(val.replace(',', '.')) <= MAX_RETURN, {
+        message: `Asumsi return investasi maksimal ${MAX_RETURN}%`,
+      }),
+  })
+  .refine(
+    ({ savingTarget, currentSaving }) =>
+      formatToNumberValue(savingTarget) > formatToNumberValue(currentSaving),
+    {
+      message: 'Jumlah dana saat ini harus lebih sedikit dari target dana',
+      path: ['currentSaving'],
+    }
+  );
 
 export type SavingInvestmentInputs = z.infer<typeof schema>;
 

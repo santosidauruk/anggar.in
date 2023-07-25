@@ -5,7 +5,12 @@ import Footer from '@/src/components/Footer';
 
 export default function Home() {
   return (
-    <div>
+    <div
+      className="bg-cover bg-purple-900 bg-[left_-280px_top_-540px] md:bg-right"
+      style={{
+        backgroundImage: 'url(/bg.svg)',
+      }}
+    >
       <Head>
         <title>anggar.in - hitung potensi investasi kamu!</title>
         <meta

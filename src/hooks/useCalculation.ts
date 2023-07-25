@@ -3,7 +3,7 @@ import {
   FINAL_INVESTMENT,
   INVESTMENT_PERIOD,
   SAVING_INVESTMENT,
-} from '@/constants/investmentTypes';
+} from '@/constants/index';
 import { CalculationResult } from '@/types/result';
 
 interface Final {

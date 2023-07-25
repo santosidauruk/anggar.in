@@ -5,12 +5,12 @@ import FinalInvestment from './FinalInvestment';
 import InvestmentPeriod from './InvestmentPeriod';
 import SavingInvestment from './SavingInvestment';
 import { CalculationResult, InvestmentType } from '@/types/result';
+import type { CalcAction } from '@/hooks/useCalculation';
 import {
   FINAL_INVESTMENT,
   INVESTMENT_PERIOD,
   SAVING_INVESTMENT,
-} from '@/constants/investmentTypes';
-import type { CalcAction } from '@/hooks/useCalculation';
+} from '@/constants/index';
 
 interface LabelTabs {
   label: string;
@@ -70,7 +70,7 @@ const Form = ({ setActiveTab, calcData, dispatch }: Props) => {
             );
           })}
         </Tab.List>
-        <Tab.Panels as="div" className="bg-purple-100">
+        <Tab.Panels as="div" className="bg-purple-100 rounded-b-lg">
           <Tab.Panel>
             <FinalInvestment
               setResult={(res) =>
